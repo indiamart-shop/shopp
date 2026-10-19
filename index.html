@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#17130f">
+<title>LAVIE WORLD — Bags, Style & Elegance</title>
+<meta name="description" content="Explore stylish handbags and discover your next favourite bag. Ask about products directly on WhatsApp.">
+<style>
+:root{--ink:#19150f;--gold:#c39a5b;--cream:#fbf6ee;--muted:#857a6a;--green:#18b95d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif;padding-bottom:84px}
+a{text-decoration:none;color:inherit}button{font:inherit;cursor:pointer}.promo{background:var(--ink);color:#e7c58e;text-align:center;padding:9px 5px;font-size:10px;letter-spacing:1.5px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:17px 16px}.logo{font-family:Georgia,serif;font-size:26px;font-weight:bold;letter-spacing:2px}.logo small{display:block;text-align:center;color:#a57a3b;font:10px Arial,sans-serif;letter-spacing:5px;margin-top:4px}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:var(--green);color:white;font-size:12px;font-weight:bold;border-radius:30px;padding:12px 14px;border:0}
+.hero{padding:34px 20px 28px;color:white;background:linear-gradient(90deg,rgba(18,15,11,.98) 0%,rgba(18,15,11,.88) 52%,rgba(18,15,11,.25) 100%),url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1200&q=90') center/cover;min-height:390px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.eyebrow{color:#e4bd7c;font-size:10px;letter-spacing:2.5px;margin-bottom:15px}.hero h1{font:normal clamp(42px,11vw,58px)/1.04 Georgia,serif;margin:0}.hero h1 em{color:#dfb775}.hero p{max-width:260px;font-size:13px;line-height:1.8;color:#e3d9c8;margin:16px 0 21px}.gold-line{width:48px;height:2px;background:var(--gold);margin-bottom:17px}
+.section-head{text-align:center;padding:29px 12px 15px}.kicker{color:#a67d42;font-size:10px;letter-spacing:3px;font-weight:bold;margin-bottom:8px}.section-head h2{font:normal 30px Georgia,serif;margin:0}.section-head p{color:var(--muted);font-size:12px;line-height:1.6;margin:9px 0 0}
+.filters{display:flex;gap:8px;padding:10px 14px 18px;overflow-x:auto;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.filter{flex-shrink:0;padding:10px 14px;border:1px solid #e5d8c4;border-radius:30px;background:#fffaf4;color:#655640;font-size:10px;font-weight:bold}.filter.active{background:var(--ink);border-color:var(--ink);color:#f0cf96}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0 13px}.card{min-width:0;overflow:hidden;border:1px solid #efe5d7;border-radius:12px;background:white;box-shadow:0 5px 18px #39271008}.photo{position:relative;aspect-ratio:4/4.4;background:#e9dfd0;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover;display:block}.tag{position:absolute;top:9px;left:8px;padding:5px 7px;border-radius:3px;background:#1b1712;color:#edca8e;font-size:8px;letter-spacing:.6px}.info{padding:11px 9px 10px}.cat{color:#a17b46;font-size:9px;letter-spacing:.5px;text-transform:uppercase;margin-bottom:7px}.name{font-size:13px;line-height:1.4;min-height:36px;margin:0 0 10px}.order{display:flex;align-items:center;justify-content:center;gap:5px;background:var(--green);color:white;padding:11px 4px;border-radius:6px;font-size:10px;font-weight:bold}
+.trust{margin:25px 13px;padding:20px 8px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px;text-align:center;border-radius:12px;color:#f4e5cd;background:#1b1712}.trust div{font-size:10px;line-height:1.6}.trust b{display:block;color:#e0b879;font-size:22px;font-weight:normal;margin-bottom:5px}
+.bottom{text-align:center;margin:0 13px 24px;padding:23px 15px;border:1px solid #e4d0ad;border-radius:13px;background:#f0e2cd}.bottom h2{font:normal 25px Georgia,serif;margin:0}.bottom p{font-size:12px;color:#685846;line-height:1.7;margin:10px 0 16px}.bottom .pill{width:100%;padding:15px}footer{text-align:center;padding:4px 12px 22px;color:var(--muted);font-size:10px;line-height:1.8}
+.sticky{position:fixed;z-index:5;left:0;right:0;bottom:0;padding:10px 13px calc(10px + env(safe-area-inset-bottom));background:#fbf6eef2;border-top:1px solid #e7ddce;backdrop-filter:blur(10px)}.sticky a{display:flex;justify-content:center;align-items:center;gap:8px;background:var(--green);color:white;border-radius:9px;padding:15px 8px;font-size:13px;font-weight:bold}
+
+@media(min-width:700px){body{max-width:1000px;margin:auto;padding-bottom:20px}.hero{padding:60px 55px;min-height:440px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));padding:0 24px;gap:18px}.sticky{left:50%;right:auto;width:min(100%,1000px);transform:translateX(-50%)}}
+</style>
+</head>
+<body>
+<div class="promo">THE NEW COLLECTION · BAGS THAT DEFINE YOUR STYLE</div>
+<header class="header"><a href="#" class="logo">LAVIE<small>W O R L D</small></a><button class="pill" data-whatsapp>WhatsApp ↗</button></header>
+<section class="hero"><div class="eyebrow">THE HANDBAG EDIT</div><div class="gold-line"></div><h1>Elegance in<br><em>Every Detail.</em></h1><p>Discover your next favourite bag. Beautiful styles for everyday moments and special occasions.</p><button class="pill" data-whatsapp>EXPLORE COLLECTION&nbsp; →</button></section>
+<section class="section-head"><div class="kicker">CURATED FOR YOU</div><h2>Find Your Style</h2><p>Little details. Big statement.</p></section>
+<nav class="filters" aria-label="Product categories">
+<button class="filter active" data-filter="all">ALL BAGS</button><button class="filter" data-filter="Shoulder Bags">SHOULDER</button><button class="filter" data-filter="Mini Bags">MINI BAGS</button><button class="filter" data-filter="Handbags">HANDBAGS</button><button class="filter" data-filter="Party Bags">PARTY</button><button class="filter" data-filter="Daily Wear">DAILY WEAR</button>
+</nav>
+<main class="grid" id="products">
+<article class="card" data-category="Shoulder Bags" data-product="Classic Black Bag"><div class="photo"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=85" alt="Classic Black Bag" loading="lazy"><span class="tag">BESTSELLER</span></div><div class="info"><div class="cat">Shoulder Bags</div><h3 class="name">Classic Black Bag</h3><button class="order" data-product-button>WhatsApp · ENQUIRE</button></div></article>
+<article class="card" data-category="Mini Bags" data-product="Elegant Cream Bag"><div class="photo"><img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=85" alt="Elegant Cream Bag" loading="lazy"><span class="tag">TRENDING</span></div><div class="info"><div class="cat">Mini Bags</div><h3 class="name">Elegant Cream Bag</h3><button class="order" data-product-button>WhatsApp · ENQUIRE</button></div></article>
+<article class="card" data-category="Handbags" data-product="Everyday Style Bag"><div class="photo"><img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=800&q=85" alt="Everyday Style Bag" loading="lazy"><span class="tag">NEW</span></div><div class="info"><div class="cat">Handbags</div><h3 class="name">Everyday Style Bag</h3><button class="order" data-product-button>WhatsApp · ENQUIRE</button></div></article>
+<article class="card" data-category="Crossbody Bags" data-product="Luxury Mini Bag"><div class="photo"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=85" alt="Luxury Mini Bag" loading="lazy"><span class="tag">POPULAR</span></div><div class="info"><div class="cat">Crossbody Bags</div><h3 class="name">Luxury Mini Bag</h3><button class="order" data-product-button>WhatsApp · ENQUIRE</button></div></article>
+<article class="card" data-category="Party Bags" data-product="Elegant Chain Bag"><div class="photo"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=85" alt="Elegant Chain Bag" loading="lazy"><span class="tag">TRENDING</span></div><div class="info"><div class="cat">Party Bags</div><h3 class="name">Elegant Chain Bag</h3><button class="order" data-product-button>WhatsApp · ENQUIRE</button></div></article>
+<article class="card" data-category="Daily Wear" data-product="Chic Daily Bag"><div class="photo"><img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=800&q=85" alt="Chic Daily Bag" loading="lazy"><span class="tag">NEW</span></div><div class="info"><div class="cat">Daily Wear</div><h3 class="name">Chic Daily Bag</h3><button class="order" data-product-button>WhatsApp · ENQUIRE</button></div></article>
+</main>
+<section class="trust"><div><b>✧</b>Curated<br>Styles</div><div><b>♡</b>Latest<br>Collection</div><div><b>◉</b>WhatsApp<br>Assistance</div></section>
+<section class="bottom"><h2>Your Next Favourite Bag.</h2><p>Want more photos, details or availability?<br>Talk to us directly on WhatsApp.</p><button class="pill" data-whatsapp>CHAT WITH US&nbsp; →</button></section>
+<footer><strong>LAVIE WORLD</strong><br>Bags · Style · Elegance<br>Availability and details are confirmed on WhatsApp.</footer>
+<div class="sticky"><button data-whatsapp style="width:100%;display:flex;justify-content:center;align-items:center;gap:8px;background:#18b95d;color:white;border:0;border-radius:9px;padding:15px 8px;font-size:13px;font-weight:bold">☏ &nbsp; SHOP / ENQUIRE ON WHATSAPP</button></div>
+<script>
+(function(){
+ const defaults={whatsapp:"919876543210",redirectSeconds:10,autoRedirect:true,message:"Hello LAVIE WORLD! Please share your latest handbag collection and prices."};
+ function getSettings(){try{return {...defaults,...JSON.parse(localStorage.getItem("lavieSettings")||"{}")}}catch(e){return defaults}}
+ const settings=getSettings();
+ const number=String(settings.whatsapp||defaults.whatsapp).replace(/\D/g,"");
+ function makeUrl(product){let message=String(settings.message||defaults.message).replaceAll("{product}",product||"handbag collection").replaceAll("{category}","handbag");return "https://wa.me/"+number+"?text="+encodeURIComponent(message)}
+ // Silent redirect: no popup, countdown display, or cancel button.
+ if(settings.autoRedirect){
+   const delay=Math.max(3,Math.min(120,Number(settings.redirectSeconds)||10));
+   window.setTimeout(function(){window.location.href=makeUrl("");},delay*1000);
+ }
+ // Product enquiry buttons open WhatsApp directly with the selected product message.
+ document.querySelectorAll("[data-whatsapp]").forEach(el=>el.addEventListener("click",()=>{window.location.href=makeUrl("")}));
+ document.querySelectorAll("[data-product-button]").forEach(el=>el.addEventListener("click",()=>{const card=el.closest(".card");window.location.href=makeUrl(card?card.dataset.product:"")}));
+ document.querySelectorAll(".filter").forEach(button=>button.addEventListener("click",function(){const selected=this.dataset.filter;document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b===this));document.querySelectorAll(".card").forEach(card=>card.hidden=selected!=="all"&&card.dataset.category!==selected)}));
+})();
+</script>
+</body></html>
