@@ -44,22 +44,38 @@ a{text-decoration:none;color:inherit}button{font:inherit;cursor:pointer}.promo{b
 <section class="bottom"><h2>Your Next Favourite Bag.</h2><p>Want more photos, details or availability?<br>Talk to us directly on WhatsApp.</p><button class="pill" data-whatsapp>CHAT WITH US&nbsp; →</button></section>
 <footer><strong>LAVIE WORLD</strong><br>Bags · Style · Elegance<br>Availability and details are confirmed on WhatsApp.</footer>
 <div class="sticky"><button data-whatsapp style="width:100%;display:flex;justify-content:center;align-items:center;gap:8px;background:#18b95d;color:white;border:0;border-radius:9px;padding:15px 8px;font-size:13px;font-weight:bold">☏ &nbsp; SHOP / ENQUIRE ON WHATSAPP</button></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (function(){
- const defaults={whatsapp:"919876543210",redirectSeconds:10,autoRedirect:true,message:"Hello LAVIE WORLD! Please share your latest handbag collection and prices."};
- function getSettings(){try{return {...defaults,...JSON.parse(localStorage.getItem("lavieSettings")||"{}")}}catch(e){return defaults}}
- const settings=getSettings();
- const number=String(settings.whatsapp||defaults.whatsapp).replace(/\D/g,"");
- function makeUrl(product){let message=String(settings.message||defaults.message).replaceAll("{product}",product||"handbag collection").replaceAll("{category}","handbag");return "https://wa.me/"+number+"?text="+encodeURIComponent(message)}
- // Silent redirect: no popup, countdown display, or cancel button.
- if(settings.autoRedirect){
-   const delay=Math.max(3,Math.min(120,Number(settings.redirectSeconds)||10));
-   window.setTimeout(function(){window.location.href=makeUrl("");},delay*1000);
+ const client=window.supabase.createClient("https://txekxcededtfhwvxqxno.supabase.co","sb_publishable_VgrTZpOEm5EzfyQqr6V44Q_vQnipX3U");
+ const defaults={whatsapp:"919999999999",redirect_seconds:10,auto_redirect:true,whatsapp_message:"Hello LAVIE WORLD! Please share your latest handbag collection and prices."};
+ let settings={...defaults};
+ async function loadSettings(){
+   try{
+     const {data,error}=await client.from("lavie_settings").select("whatsapp,redirect_seconds,auto_redirect,whatsapp_message").eq("id",1).single();
+     if(error) throw error; settings={...defaults,...data};
+   }catch(err){console.error("LAVIE settings load failed:",err.message);}
  }
- // Product enquiry buttons open WhatsApp directly with the selected product message.
- document.querySelectorAll("[data-whatsapp]").forEach(el=>el.addEventListener("click",()=>{window.location.href=makeUrl("")}));
- document.querySelectorAll("[data-product-button]").forEach(el=>el.addEventListener("click",()=>{const card=el.closest(".card");window.location.href=makeUrl(card?card.dataset.product:"")}));
- document.querySelectorAll(".filter").forEach(button=>button.addEventListener("click",function(){const selected=this.dataset.filter;document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b===this));document.querySelectorAll(".card").forEach(card=>card.hidden=selected!=="all"&&card.dataset.category!==selected)}));
+ function makeUrl(product,category){
+   const number=String(settings.whatsapp||defaults.whatsapp).replace(/\D/g,"");
+   const message=String(settings.whatsapp_message||defaults.whatsapp_message).replaceAll("{product}",product||"handbag collection").replaceAll("{category}",category||"handbag");
+   return "https://wa.me/"+number+"?text="+encodeURIComponent(message);
+ }
+ document.querySelectorAll(".filter").forEach(button=>button.addEventListener("click",function(){
+   const selected=this.dataset.filter;
+   document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b===this));
+   document.querySelectorAll(".card").forEach(card=>card.hidden=selected!=="all"&&card.dataset.category!==selected);
+ }));
+ document.querySelectorAll("[data-whatsapp]").forEach(el=>el.addEventListener("click",()=>{window.location.href=makeUrl("","handbag");}));
+ document.querySelectorAll("[data-product-button]").forEach(el=>el.addEventListener("click",()=>{
+   const card=el.closest(".card"); window.location.href=makeUrl(card?card.dataset.product:"",card?card.dataset.category:"handbag");
+ }));
+ loadSettings().then(()=>{
+   if(settings.auto_redirect){
+     const delay=Math.max(3,Math.min(120,Number(settings.redirect_seconds)||10));
+     window.setTimeout(()=>{window.location.href=makeUrl("","handbag");},delay*1000);
+   }
+ });
 })();
 </script>
 </body></html>
