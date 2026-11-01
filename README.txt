@@ -1,19 +1,40 @@
-LAVIE WORLD - GitHub Pages package
+LAVIE WORLD - SUPABASE CONNECTED GITHUB PAGES PACKAGE
 
-Folder structure:
-- index.html          Main storefront
-- admin/index.html    Admin panel (opens at /<repository-name>/admin/)
+Files:
+- index.html
+- admin/index.html
 
-Publishing:
-1. Upload index.html and the admin folder (containing index.html) to the root of your GitHub repository.
-2. Open Settings -> Pages.
-3. Select Deploy from a branch, select your main branch and /(root), then Save.
-4. Your storefront URL is https://USERNAME.github.io/REPOSITORY/
-5. Your admin URL is https://USERNAME.github.io/REPOSITORY/admin/
+SUPABASE PROJECT:
+- Project URL: https://txekxcededtfhwvxqxno.supabase.co
+- Publishable key is configured in both HTML files.
 
-The admin layout follows the original PHP page's section order. No GitHub information panel is displayed inside the admin panel.
+DEPLOY:
+1. Extract this ZIP.
+2. In GitHub repository indiamart-shop/shopp, upload/replace index.html.
+3. Upload/replace admin/index.html (keep the admin folder).
+4. Commit changes to the main branch.
+5. Wait for GitHub Pages deployment.
+6. Storefront: https://indiamart-shop.github.io/shopp/
+7. Admin: https://indiamart-shop.github.io/shopp/admin/
 
-IMPORTANT TECHNICAL LIMITATION:
-GitHub Pages cannot execute PHP. This HTML version stores settings in localStorage, so the storefront and admin share the settings in the same browser/device. Timer and silent auto-redirect are implemented. No popup, visible countdown, or Cancel button is shown on the storefront. Settings saved by the admin do not update other visitors' browsers. The local admin password is only a convenience and is not secure server-side authentication. Shared settings for all visitors and secure authentication require a backend/API or PHP-capable hosting.
+ADMIN LOGIN:
+- Use the email address and password of the Supabase Auth user you created.
+- That user's UUID must already be inserted into public.lavie_admins.
+- Your SQL authorization step was completed according to your confirmation.
 
-Replace the sample WhatsApp number 919876543210 with your actual number before publishing. Developer support number in the admin footer is currently 917027395027; replace it if needed.
+SETTINGS:
+- WhatsApp number, redirect delay, auto redirect toggle, and WhatsApp message are read/written in public.lavie_settings.
+- Changes are shared with all visitors/devices after refresh.
+- Product message placeholders {product} and {category} are supported.
+- GitHub Pages cannot execute PHP; this package uses Supabase from browser JavaScript.
+
+SECURITY:
+- The browser code contains only the Supabase Publishable key. This is expected.
+- NEVER put a Supabase Secret/service_role key in HTML/JavaScript.
+- Keep your Supabase Auth admin password private.
+- Supabase RLS policies must remain enabled. Do not disable RLS.
+- Admin login requires an authenticated user AND a matching row in public.lavie_admins.
+
+IMPORTANT:
+- Automatic redirect is silent and follows the configured delay.
+- Test first after deployment. If login or settings fail, check browser console and Supabase API logs.
